@@ -17,8 +17,8 @@ export class FetchService {
     }
 
     async set(endpoint, data) {
-        const url = `${this.baseUrl}/${endpoint}`;
 
+        const url = `${this.baseUrl}/${endpoint}`;
         try {
             const response = await fetch(url, {
                 method: 'POST',

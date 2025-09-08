@@ -49,12 +49,8 @@ export class Users extends DefaultModel {
     }
 
     async getUsers() {
-        const response = await fetch(`${process.env.BASE_URL}/users`);
-        const data = await response.json();
-
-        if (!response.ok) {
-            throw new Error('Erro ao buscar usuários');
-        }
+        const req = new FetchService();
+        const data = await req.get(this.table);
 
         return await data;
     }
