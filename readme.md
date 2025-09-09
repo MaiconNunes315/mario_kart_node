@@ -1,103 +1,60 @@
-# 🚀 Aplicação Node.js + JSON Server com Docker
+# Mario Kart Node (API Fake com JSON-Server)
 
-Este projeto demonstra como rodar **uma aplicação Node.js** juntamente com o **JSON Server** usando **Docker** e **Docker Compose**, com configurações dinâmicas via `.env`.
-
----
-
-## 📂 Estrutura do Projeto
-
-.
-├─ .env
-├─ Dockerfile
-├─ docker-compose.yml
-├─ package.json
-├─ server.js
-└─ db.json
+Este projeto utiliza o **[json-server](https://github.com/typicode/json-server)** para simular uma API REST a partir de um arquivo JSON.  
+É útil para prototipar, testar e desenvolver aplicações sem precisar de um backend completo.
 
 ---
 
-## ⚙️ Configuração do `.env`
+## 🚀 Instalação
 
-Defina as variáveis de ambiente da sua aplicação no arquivo `.env`:
+1. **Clone o repositório**
+   ```bash
+   git clone https://github.com/seu-usuario/mario_kart_node.git
+   cd mario_kart_node
+   ```
 
-```env
-# Informações da aplicação
-APP_NAME=meu-app-node
-APP_VERSION=1.0.0
+bash
+Copiar código
+npm install
+Instale o json-server (global ou local)
 
-# Configurações do Node.js
-NODE_ENV=development
-APP_PORT=3000
+Global (recomendado se for usar em vários projetos):
 
-# Configurações do JSON Server
-JSON_SERVER_PORT=4000
-JSON_SERVER_HOST=0.0.0.0
-```
+bash
+Copiar código
+npm install -g json-server
+Local (dentro do projeto):
 
-🛠️ Passo a Passo para rodar
+bash
+Copiar código
+npm install json-server --save-dev
+▶️ Uso
 
-```
-1. Instale o Docker e Docker Compose
-```
+### Execute o json-server:
 
-Docker
+npm run json-server_run
 
-Docker Compose
+### Execute o servidor:
 
-2. Monte os containers
-   docker-compose up --build
+npm run start
 
-3. Acesse a aplicação
+📚 Exemplos de Rotas
+GET /players → Lista todos os jogadores
 
-Aplicação Node.js: http://localhost:3000
+GET /players/1 → Retorna um jogador específico
 
-JSON Server: http://localhost:4000
+POST /players → Cria um novo jogador
 
-🧰 Comandos úteis
-Subir os containers em modo detached (segundo plano)
-docker-compose up -d --build
+PUT /players/1 → Atualiza todos os dados do jogador com ID 1
 
-Parar todos os containers
-docker-compose down
+PATCH /players/1 → Atualiza parcialmente o jogador com ID 1
 
-Ver logs em tempo real
-docker-compose logs -f
+DELETE /players/1 → Remove o jogador com ID 1
 
-Recriar containers do zero (limpando cache)
-docker-compose build --no-cache
+Assim, basta rodar:
 
-📡 Endpoints de teste
+npm start
 
-Aplicação Node.js:
-
-GET http://localhost:3000/
-
-JSON Server (fake API):
-
-GET http://localhost:4000/posts
-POST http://localhost:4000/posts
-
-(os endpoints dependem da estrutura do seu db.json)
-
-🧩 Tecnologias usadas
-
-Node.js 20 (Alpine)
-
-Express.js (API principal)
-
-JSON Server (mock de API)
-
-Docker & Docker Compose (orquestração de containers)
-
-📜 Licença
-
-Este projeto é apenas um exemplo educativo e pode ser utilizado livremente.
-Feito com ❤️ e ☕ para quem ama Node + Docker!
-
----
-
-Quer que eu faça \*\*uma versão ainda mais profissional com badges (shields.io), emojis de status, e links
-
-```
-
-```
+🏁 Tecnologias
+Node.js
+JSON-Server

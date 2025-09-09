@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node --watch src/main.js"
+    "start": "node --watch src/main.js",
+    "json-server_run": "npx json-server --watch db.json --port 3000"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type":"module"
+  "type": "module"
 }
