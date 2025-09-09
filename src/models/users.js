@@ -54,4 +54,20 @@ export class Users extends DefaultModel {
 
         return await data;
     }
+
+    async updatePoints(points = 0) {
+        let user = await this.service.get(`${this.table}?active=S`);
+        if (user.length) {
+            user = user[0];
+
+            if (points) {
+                user.points = user.points + points;
+            } else {
+                points = 10;
+            }
+
+            return await this.service.patch(this.table, user);
+        }
+        return null;
+    }
 }

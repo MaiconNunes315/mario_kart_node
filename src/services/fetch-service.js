@@ -6,7 +6,6 @@ export class FetchService {
     async get(endpoint, params = {}) {
         const query = new URLSearchParams(params).toString();
         const url = `${this.baseUrl}/${endpoint}${query ? '?' + query : ''}`;
-
         try {
             const response = await fetch(url);
             const data = await response.json();
@@ -36,6 +35,28 @@ export class FetchService {
             return json;
         } catch (err) {
             console.error('Erro ao enviar dados:', err);
+        }
+    }
+
+    async patch(endpoint, data) {
+        const url = `${this.baseUrl}/${endpoint}/${data.id}`;
+        try {
+            const response = await fetch(url, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+
+            if (!response.ok) {
+                throw new Error('Erro ao atualizar dados');
+            }
+            const json = await response.json();
+
+            return json;
+        } catch (err) {
+            console.error('Erro ao atualizar dados:', err);
         }
     }
 }
