@@ -48,13 +48,15 @@
       "id": "1",
       "name": "User 1",
       "age": 25,
-      "active": "N"
+      "active": "N",
+      "points": 0
     },
     {
       "id": "2",
       "name": "Maicon",
       "age": "18",
-      "active": "S"
+      "active": "S",
+      "points": 76
     }
   ]
 }
